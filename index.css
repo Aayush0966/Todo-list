@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1e1e1e;
+    margin: 0;
+}
+
+.calculator {
+    border-radius: 15px;
+    width: 360px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+}
+
+.calculator-screen {
+    width: 100%;
+    height: 80px;
+    border: none;
+    background-color: #181818;
+    color: #00ff88;
+    text-align: right;
+    padding: 20px;
+    font-size: 2.5em;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+.calculator-keys button {
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3a3a3a;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.calculator-keys button:hover {
+    background-color: #505050;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.calculator-keys .operator {
+    background-color: #f57c00;
+    color: white;
+}
+
+.calculator-keys .equal-sign {
+    background-color: #00bcd4;
+    color: white;
+    grid-column: span 2;
+}
+
+.calculator-keys .all-clear {
+    background-color: #d32f2f;
+    color: white;
+    grid-column: span 2;
+}
+
+.calculator-keys .decimal {
+    background-color: #616161;
+    color: white;
+}
+
+.calculator-keys .history {
+    background-color: #181515;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
