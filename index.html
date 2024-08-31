@@ -3,39 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Calculator</title>
+    <title>To-do List</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" class="calculator-screen" />
+    <main>
+        <div class="container">
+            <div class="todo">
+                <div class="header">
+                    <h1>To-do List</h1>
 
-        <div class="calculator-keys">
-            <button type="button" class="operator" value="+">+</button>
-            <button type="button" class="operator" value="-">−</button>
-            <button type="button" class="operator" value="*">×</button>
-            <button type="button" class="operator" value="/">÷</button>
+                </div>
 
-            <button type="button" value="7">7</button>
-            <button type="button" value="8">8</button>
-            <button type="button" value="9">9</button>
+                <div class="input-container">
+                    <input type="text" placeholder="Add a new task...">
+                    <button type="submit" class="submit-btn">Add</button>
+                </div>
 
-            <button type="button" value="4">4</button>
-            <button type="button" value="5">5</button>
-            <button type="button" value="6">6</button>
+                <div class="taskList">
+                    <!-- Task items will be added here dynamically -->
+                    
+                </div>
 
-            <button type="button" value="1">1</button>
-            <button type="button" value="2">2</button>
-            <button type="button" value="3">3</button>
-
-            <button type="button" value="0">0</button>
-            <button type="button" class="decimal" value=".">.</button>
-            <button type="button" class="history">History</button>
-            <button type="button" class="all-clear" value="all-clear">AC</button>
-
-            <button type="button" class="equal-sign" value="=">=</button>
+                <div class="select-status">
+                    <label for="status">Filter by Status:</label>
+                    <select id="status">
+                        <option value="all">
+                            <i class="fa-solid fa-circle" style="color: rgb(255, 255, 255);"></i> All
+                        </option>
+                        <option value="active" selected>
+                            <i class="fa-solid fa-circle" style="color: green;"></i> Active
+                        </option>
+                        <option value="completed">
+                            <i class="fa-solid fa-circle" style="color: blue;"></i> Completed
+                        </option>
+                        <option value="deleted">
+                            <i class="fa-solid fa-circle" style="color: red;"></i> Deleted
+                        </option>
+                    </select>
+                </div>
+                <div class="empty-state">
+                    <div class="icon-placeholder">📝</div>
+                    <h2>No Tasks Yet</h2>
+                    <p>You have no tasks at the moment. Start by adding your task!</p>
+                    <button id="showBox" class="add-task-button">Add Task</button>
+                </div>
+                
+                <div class="editName">
+                    <h2>Edit Task</h2>
+                    <input type="text" name="newName" id="newName">
+                    <button class="editSub" type="submit">Submit</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>

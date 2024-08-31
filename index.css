@@ -1,83 +1,391 @@
+/* General body styling */
 body {
-    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #1e1e2f, #2b2b3b);
+    color: #f5f5f5;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #1e1e1e;
-    margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-.calculator {
-    border-radius: 15px;
-    width: 360px;
-    background-color: #2c2c2c;
-    padding: 20px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-}
-
-.calculator-screen {
+/* Container styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 80px;
-    border: none;
-    background-color: #181818;
-    color: #00ff88;
-    text-align: right;
-    padding: 20px;
-    font-size: 2.5em;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    height: 80vh;
 }
 
-.calculator-keys {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
+/* To-do list styling */
+.todo {
+    background: #2b2b3b;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.calculator-keys button {
-    height: 70px;
-    border: none;
-    border-radius: 10px;
-    background-color: #3a3a3a;
-    font-size: 1.5em;
-    color: white;
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 40px;
+    color: #ff6f61;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 0;
+    background: linear-gradient(to right, #ff6f61, #de4a4a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Add icon styling */
+.add-icon {
+    font-size: 30px;
+    color: #ff6f61;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.calculator-keys button:hover {
-    background-color: #505050;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+.add-icon:hover {
+    color: #f5f5f5;
+    transform: scale(1.1);
 }
 
-.calculator-keys .operator {
-    background-color: #f57c00;
-    color: white;
+/* Input container styling */
+.input-container {
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Added gap between input and button */
 }
 
-.calculator-keys .equal-sign {
-    background-color: #00bcd4;
-    color: white;
-    grid-column: span 2;
+/* Input field styling */
+input[type="text"] {
+    font-size: 18px;
+    padding: 8px 12px;
+    border: 2px solid #ff6f61;
+    border-radius: 5px;
+    outline: none;
+    color: #f5f5f5;
+    background-color: #3a3a4b;
+    width: calc(100% - 70px); /* Adjust width to make space for the button */
+    transition: width 0.4s ease, border-color 0.3s ease;
 }
 
-.calculator-keys .all-clear {
-    background-color: #d32f2f;
-    color: white;
-    grid-column: span 2;
+input[type="text"]::placeholder {
+    color: #aaa;
 }
 
-.calculator-keys .decimal {
-    background-color: #616161;
-    color: white;
+input[type="text"]:focus {
+    border-color: #f5f5f5;
+    width: calc(100% - 70px); /* Ensure width accommodates the button */
 }
 
-.calculator-keys .history {
-    background-color: #181515;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+/* Submit button styling */
+.submit-btn {
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.submit-btn:hover {
+    background-color: #de4a4a;
+    transform: scale(1.05);
+}
 
+/* Task list styling */
+.taskList {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Individual task styling */
+.task {
+    position: relative;
+    margin: 10px 0;
+    font-size: 20px; /* Increased font size for better readability */
+    color: #f5f5f5;
+    background: #3a3a4b;
+    border-radius: 8px; /* Increased border-radius for a softer look */
+    padding: 15px 80px 15px 30px; /* Increased padding for more space inside the box */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly increased shadow for a more prominent look */
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    min-width: 300px; /* Ensure a minimum width for the box */
+    overflow: hidden; /* Hide overflow to maintain a clean layout */
+}
+
+/* Task text styling */
+.task-text {
+    flex: 1; /* Allow text to take up available space */
+    word-wrap: break-word; /* Handle long words */
+    margin-right: 60px; /* Increased space for action icons */
+}
+
+/* Task actions icons styling */
+.task-actions {
+    display: flex; /* Initially set to flex to allow transition */
+    position: absolute;
+    right: 15px; /* Increased right positioning */
+    top: 50%;
+    transform: translateY(-50%) translateX(10px); /* Slide in from the right */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.info-icon {
+    display: flex; /* Initially set to flex to allow transition */
+    position: absolute;
+    right: 45px; /* Increased right positioning */
+    top: 50%;
+    transform: translateY(-50%) translateX(10px); /* Slide in from the right */
+    /* Initially invisible */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.info-icon.fa-check{
+ background-color: green;
+ padding: 2px;
+ border-radius: 50%;
+}
+
+.info-icon.fa-trash{
+    color: red;
+    
+   }
+
+/* Show task actions with animation */
+.task.show-actions .task-actions {
+    opacity: 1; /* Fully visible */
+    transform: translateY(-50%) translateX(0); /* Move to the original position */
+}
+
+/* General button styling */
+.task-actions i {
+    margin: 2px;
+    font-size: 22px; /* Slightly larger icons for better visibility */
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    background: #2b2b3b; /* Match task background */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Edit button styling */
+#edit-btn {
+    color: #1e90ff; /* Cool blue color */
+}
+
+#edit-btn:hover {
+    color: #ffffff;
+    background: #1e90ff;
+    transform: scale(1.1);
+}
+
+/* Delete button styling */
+#delete-btn {
+    color: #ff4500; /* Bright red color */
+}
+
+#delete-btn:hover {
+    color: #ffffff;
+    background: #ff4500;
+    transform: scale(1.1);
+}
+
+/* Complete button styling */
+#comp-btn {
+    color: #32cd32; /* Bright green color */
+}
+
+#comp-btn:hover {
+    color: #ffffff;
+    background: #32cd32;
+    transform: scale(1.1);
+}
+
+.task:hover{
+    transform: scale(1.1);
+}
+
+/* Status dropdown styling */
+.select-status {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.select-status label {
+    font-size: 18px;
+    color: #f5f5f5;
+    margin-right: 10px;
+}
+
+.select-status select {
+    font-size: 18px;
+    padding: 8px 12px;
+    border: 2px solid #0532fd;
+    border-radius: 5px;
+    background: #3a3a4b;
+    color: #f5f5f5;
+    outline: none;
+    appearance: none; /* Remove default styling for dropdown */
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.select-status select:hover {
+    border-color: #f5f5f5;
+}
+
+/* Background blur effect */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 1; /* Ensure it sits below the edit task section */
+    display: none; /* Hidden by default */
+}
+
+/* Edit Task Section Styling */
+.editName {
+    display: none;
+    position: fixed;
+    top: 20%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, 0); /* Center horizontally */
+    background: #2b2b3b; /* Dark background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Added padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 2; /* Ensure it sits above the backdrop */
+    width: 60%; /* Responsive width */
+    max-width: 500px; /* Maximum width */
+    opacity: 0; /* Start hidden */
+    transform: translate(-50%, -30px); /* Slide in from above */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Show the Edit Task Section */
+.editName.show {
+    opacity: 1; /* Fully visible */
+    transform: translate(-50%, 0); /* Slide into place */
+}
+
+/* Heading Styling */
+.editName h2 {
+    font-size: 24px; /* Larger font size */
+    color: #ffffff; /* White color for better readability */
+    margin-bottom: 15px; /* Space below heading */
+    text-align: center; /* Center align heading */
+}
+
+/* Input Field Styling */
+.editName input[type="text"] {
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding inside input */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    background: #333; /* Dark background */
+    color: #fff; /* White text */
+    font-size: 16px; /* Font size for better readability */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow */
+    transition: background 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+.editName input[type="text"]:focus {
+    background: #444; /* Slightly lighter background on focus */
+    border-color: #1e90ff; /* Blue border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Submit Button Styling */
+.editName .editSub {
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding inside button */
+    border-radius: 8px; /* Rounded corners */
+    border: none; /* Remove default border */
+    background: #1e90ff; /* Blue background */
+    color: #ffffff; /* White text */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.editName .editSub:hover {
+    background: #1c86ee; /* Slightly darker blue on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.editName .editSub:active {
+    background: #1a78d3; /* Even darker blue on click */
+    transform: scale(1); /* Reset scale on click */
+}
+/* Add this CSS to your existing styles */
+
+.empty-state {
+    display: none;
+    text-align: center;
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+.empty-state h2 {
+    font-size: 2rem;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    margin-bottom: 30px;
+}
+
+.add-task-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-task-button:hover {
+    background-color: #ff3333;
+}
+
+.icon-placeholder {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #555;
+}
